@@ -75,8 +75,12 @@ spec:
       name: Log Message11
       action: debug:log
       input:
-        message: ${{ steps['tplace'].output.content }}
-
+        message: ${{ steps.backstage_request.output.body }}
+    - id: log-headers
+      name: Log headers
+      action: debug:log
+      input:
+        message: ${{ steps.backstage_request.getHeaders }}
 
     - id: log-message
       name: Log Message22
