@@ -35,8 +35,8 @@ spec:
         
     - id: tplace
       action: fetch:template
-      url: https://github.com/prrdev2/s1/blob/main/skeleton
       input:
+        url: https://github.com/prrdev2/s1/blob/main/skeleton
         path: ./template.md
         templateFileExtension: true
         values:
