@@ -25,25 +25,16 @@ spec:
           title: repo
           type: string
   steps:
-    - id: fetch-template
-      action: fetch:template
+    - id: jsutil
+      action: roadiehq:utils:jsonata
+      workspacePath: 'fake-tmp-dir'
       input:
-        url: https://github.com/prrdev2/s1/tree/main/skeleton
-        templateFileExtension: true
-        values:
-          rfcNumber: ${{ parameters.rfcNumber }}
-          rfcTitle: ${{ parameters.rfcTitle }}
-          abstract: ${{ parameters.abstract }}
-          repo: ${{ parameters.repo | parseRepoUrl }}
-
-    - id: read-file
-      name: Read File
-      action: fs:read
-      input:
-        path: ./template.md
-
+        data:
+          example: [11,23,2323]
+        expression: '$'
+        
     - id: log-message
       name: Log Message
       action: debug:log
       input:
-        message: ${{ steps['read-file'].output.content }}
+        message: ${{ steps['jsutil'].output.content }}
