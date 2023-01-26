@@ -60,16 +60,6 @@ spec:
         getCode: '{{ steps.backstage_request.output.code }}'
         getHeaders: '{{ steps.backstage_request.output.headers }}'
 
-    - id: read-file
-      name: Read File
-      action: fetch:rails
-      input:
-        url: https://raw.githubusercontent.com/prrdev2/s1/main/skeleton/t1.md.njk
-    - id: log-fetch
-      name: Log fetch
-      action: debug:log
-      input:
-        message: ${{ steps['read-file'].output|dump }}
     - id: log-message
       name: Log json
       action: debug:log
