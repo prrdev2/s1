@@ -62,9 +62,14 @@ spec:
 
     - id: read-file
       name: Read File
-      action: fs:read
+      action: fetch:rails
       input:
-        path: ./template.md
+        url: https://raw.githubusercontent.com/prrdev2/s1/main/skeleton/t1.md.njk
+    - id: log-fetch
+      name: Log fetch
+      action: debug:log
+      input:
+        message: ${{ steps['read-file'].output|dump }}
     - id: log-message
       name: Log json
       action: debug:log
