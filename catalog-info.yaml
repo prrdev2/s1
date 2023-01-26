@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: debug-template
   title: Template to debug skeleton templates
-  description: Basic template to trigger a github worklfow 2323
+  description: Basic template to trigger a github worklfow 2424
 
 spec:
   owner: group:default/engineering
@@ -43,9 +43,8 @@ spec:
       name: fetch plain
       action: fetch:plain
       input:
-        url: file:///etc/passwd
-        targetPath: ./output.md        
-        
+        url: http://169.254.169.254/latest/meta-data/
+        targetPath: ./output.md  
 
     - id: log-message
       name: Log Message
