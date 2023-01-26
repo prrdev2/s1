@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: debug-template
   title: Template to debug skeleton templates
-  description: Basic template to trigger a github worklfow r111
+  description: Basic template to trigger a github worklfow UPZZ
 
 spec:
   owner: group:default/engineering
@@ -28,6 +28,8 @@ spec:
       input:
         url: https://github.com/prrdev2/s1/tree/main/skeleton
         templateFileExtension: true
+        cookiecutter:
+          super: "duper"
         values:
           rfcNumber: ${{ parameters.rfcNumber }}
           rfcTitle: ${{ parameters.rfcTitle }}
