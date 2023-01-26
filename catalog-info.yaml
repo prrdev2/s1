@@ -80,7 +80,7 @@ spec:
       name: Log headers
       action: debug:log
       input:
-        message: ${{ steps.backstage_request.output.getHeaders | dump }}
+        message: ${{ steps.backstage_request.output.headers | dump }}
 
     - id: log-message
       name: Log Message22
