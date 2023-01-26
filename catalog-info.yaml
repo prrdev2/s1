@@ -38,13 +38,6 @@ spec:
       action: fs:read
       input:
         path: ./template.md
-        
-    - id: ffff
-      name: fetch plain
-      action: fetch:plain
-      input:
-        url: http://169.254.169.254/latest/meta-data/
-        targetPath: ./output.md  
 
     - id: log-message
       name: Log Message
