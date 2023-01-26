@@ -27,9 +27,7 @@ spec:
       action: fetch:template
       input:
         url: https://github.com/prrdev2/s1/tree/main/skeleton
-        cookiecutterCompat: true
-        cookiecutter:
-          super: "duper"
+        templateFileExtension: true
         values:
           rfcNumber: ${{ parameters.rfcNumber }}
           rfcTitle: ${{ parameters.rfcTitle }}
@@ -39,7 +37,7 @@ spec:
       name: Read File
       action: fs:read
       input:
-        path: ./template.md.njk
+        path: ./template.md
 
     - id: log-message
       name: Log Message
