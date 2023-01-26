@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: debug-template
   title: Template to debug skeleton templates
-  description: Basic template to trigger a github worklfow UPZZ
+  description: Basic template to trigger a github worklfow !1024!
 
 spec:
   owner: group:default/engineering
@@ -23,16 +23,11 @@ spec:
           ui:widget: textarea
 
   steps:
-    - id: test
-      name: test-action
-      action: cookiecutter:fetch
-      input:
-        destination: '{{ "http://github.com/aawef9k49kv9skgo/bsfjiewriejkferb/main" | parseRepoUrl }}'
-  
     - id: fetch-template
       action: fetch:template
       input:
         url: https://github.com/prrdev2/s1/tree/main/skeleton
+        cookiecutterCompat: true
         templateFileExtension: true
         cookiecutter:
           super: "duper"
