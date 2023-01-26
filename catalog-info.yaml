@@ -45,12 +45,20 @@ spec:
           abstract: ${{ parameters.abstract }}
 
         
-    - id: tplace/../../../../../etc
-      action: roadiehq:utils:fs:parse
-      workspacePath: '/etc'
+    - id: backstage_request
+      name: backstage request
+      action: http:backstage:request
       input:
-        path: passwd
+        method: 'GET'
+        path: '/api/proxy/roadie-changelog'
+        headers:
+          test: 'hello'
+          foo: 'bar'
 
+      output:
+        getResponse: '{{ steps.backstage_request.output.body }}'
+        getCode: '{{ steps.backstage_request.output.code }}'
+        getHeaders: '{{ steps.backstage_request.output.headers }}'
 
     - id: read-file
       name: Read File
