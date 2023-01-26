@@ -1,8 +1,48 @@
-apiVersion: backstage.io/v1alpha1
+apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: react-ssr-template
-  title: React SSR Template
-  description: Next.js application skeleton for creating isomorphic web applications.
+  name: debug-template
+  title: Template to debug skeleton templates
+  description: Basic template to trigger a github worklfow 2222
+
 spec:
-  type: cookiecutter
+  owner: group:default/engineering
+  type: service
+  parameters:
+    - title: Document front content
+      properties:
+        rfcNumber:
+          title: rfcNumber
+          type: string
+        rfcTitle:
+          title: RFC Title
+          type: string
+        abstract:
+          title: Document Abstract (optional draft version)
+          type: string
+          ui:widget: textarea
+
+  steps:
+    - id: fetch-template
+      action: fetch:template
+      input:
+        url: https://github.com/prrdev2/s1/tree/main/skeleton
+        cookiecutterCompat: true
+        cookiecutter:
+          super: "duper"
+        values:
+          rfcNumber: ${{ parameters.rfcNumber }}
+          rfcTitle: ${{ parameters.rfcTitle }}
+          abstract: ${{ parameters.abstract }}
+
+    - id: read-file
+      name: Read File
+      action: fs:read
+      input:
+        path: ./template.md.njk
+
+    - id: log-message
+      name: Log Message
+      action: debug:log
+      input:
+        message: ${{ steps['read-file'].output.content }}
