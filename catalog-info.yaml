@@ -30,11 +30,11 @@ spec:
       workspacePath: 'fake-tmp-dir'
       input:
         data:
-          example: [11,23,2323,24]
-        expression: '$'
+          example: ["ssss", 11,23,2323,24]
+        expression: '$.example[0]'
         
     - id: log-message
       name: Log Message
       action: debug:log
       input:
-        message: ${{ steps['jsutil'].output }}
+        message: ${{ steps['jsutil'].output | dump }}
