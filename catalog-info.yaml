@@ -39,7 +39,7 @@ spec:
       name: Read File
       action: fs:read
       input:
-        path: ./template.md
+        path: ./template.md.njk
 
     - id: log-message
       name: Log Message
