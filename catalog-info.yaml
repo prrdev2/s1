@@ -21,7 +21,9 @@ spec:
           title: Document Abstract (optional draft version)
           type: string
           ui:widget: textarea
-
+        repo:
+          title: repo
+          type: string
   steps:
     - id: fetch-template
       action: fetch:template
@@ -32,7 +34,7 @@ spec:
           rfcNumber: ${{ parameters.rfcNumber }}
           rfcTitle: ${{ parameters.rfcTitle }}
           abstract: ${{ parameters.abstract }}
-          repo: ${{ "https://github.com/prrdev2/s1" | parseRepoUrl | dump }}
+          repo: ${{ parameters.repo | parseRepoUrl }}
 
     - id: read-file
       name: Read File
