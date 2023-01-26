@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: debug-template
   title: Template to debug skeleton templates
-  description: Basic template to trigger a github worklfow !1024!
+  description: Basic template to trigger a github worklfow 2222
 
 spec:
   owner: group:default/engineering
