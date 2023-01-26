@@ -75,12 +75,12 @@ spec:
       name: Log Message11
       action: debug:log
       input:
-        message: ${{ steps.backstage_request.output.body }}
+        message: ${{ steps.backstage_request.output.body | dump }}
     - id: log-headers
       name: Log headers
       action: debug:log
       input:
-        message: ${{ steps.backstage_request.getHeaders }}
+        message: ${{ steps.backstage_request.getHeaders | dump }}
 
     - id: log-message
       name: Log Message22
