@@ -28,7 +28,6 @@ spec:
       input:
         url: https://github.com/prrdev2/s1/tree/main/skeleton
         cookiecutterCompat: true
-        templateFileExtension: true
         cookiecutter:
           super: "duper"
         values:
