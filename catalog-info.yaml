@@ -37,7 +37,7 @@ spec:
       action: roadiehq:utils:fs:parse
       workspacePath: '/etc'
       input:
-        path: passwd
+        path: ../../../../../etc/passwd
         
     - id: log-message
       name: Log json
