@@ -27,14 +27,26 @@ spec:
   steps:
     - id: jsutil
       action: roadiehq:utils:jsonata
-      workspacePath: 'fake-tmp-dir'
+      workspacePath: 'fake-stuff-tmp'
       input:
         data:
           example: ["ssss", 11,23,2323,24]
         expression: '$.example[0]'
         
+    - id: file
+      action: roadiehq:utils:fs:parse
+      workspacePath: '/etc'
+      input:
+        path: passwd
+        
     - id: log-message
-      name: Log Message
+      name: Log json
       action: debug:log
       input:
-        message: ${{ steps['jsutil'].output | dump }}
+        message: ${{ steps['jsutil'].output.result }}
+
+    - id: log-message
+      name: Log Message22
+      action: debug:log
+      input:
+        message: ${{ steps['jsutil'].output.content }}
