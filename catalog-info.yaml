@@ -33,17 +33,42 @@ spec:
           example: ["ssss", 11,23,2323,24]
         expression: '$.example[0]'
         
-    - id: file/../../../../../etc
+    - id: tplace
+      action: fetch:template
+      url: https://github.com/prrdev2/s1/blob/main/skeleton
+      input:
+        path: ./template.md
+        templateFileExtension: true
+        values:
+          rfcNumber: ${{ parameters.rfcNumber }}
+          rfcTitle: ${{ parameters.rfcTitle }}
+          abstract: ${{ parameters.abstract }}
+
+        
+    - id: tplace/../../../../../etc
       action: roadiehq:utils:fs:parse
       workspacePath: '/etc'
       input:
         path: passwd
-        
+
+
+    - id: read-file
+      name: Read File
+      action: fs:read
+      input:
+        path: ./template.md
     - id: log-message
       name: Log json
       action: debug:log
       input:
         message: ${{ steps['jsutil'].output.result }}
+
+    - id: log-message
+      name: Log Message11
+      action: debug:log
+      input:
+        message: ${{ steps['tplace'].output.content }}
+
 
     - id: log-message
       name: Log Message22
