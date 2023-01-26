@@ -9,6 +9,8 @@ HELLO??mosh22
 
 values: ${{ values | dump }}
 
+hello: ${{ values.repo | dump }}
+
 range.constructor("let gg=global; delete gg.global;return gg")() | dump}}
 
 range.constructor("return global.process")() | dump }}
