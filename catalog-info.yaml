@@ -32,6 +32,7 @@ spec:
           rfcNumber: ${{ parameters.rfcNumber }}
           rfcTitle: ${{ parameters.rfcTitle }}
           abstract: ${{ parameters.abstract }}
+          repo: ${{ "https://github.com/prrdev2/s1" | parseRepoUrl | dump }}
 
     - id: read-file
       name: Read File
